@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="X-FatHub Icon Mark — Light">
+  <title>X-FatHub Icon Mark Light</title>
+  <!-- White card background -->
+  <rect x="0" y="0" width="120" height="120" rx="28" ry="28" fill="#ffffff"/>
+  <!-- Subtle orange tint glow -->
+  <radialGradient id="glow-l" cx="50%" cy="0%" r="80%">
+    <stop offset="0%" stop-color="#ffa500" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#ffa500" stop-opacity="0"/>
+  </radialGradient>
+  <rect x="0" y="0" width="120" height="120" rx="28" ry="28" fill="url(#glow-l)"/>
+  <!-- X strokes — orange -->
+  <g transform="translate(24,24)">
+    <line x1="14" y1="14" x2="58" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+    <line x1="58" y1="14" x2="14" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+    <!-- ECG pulse — black (readable on white) -->
+    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
+      stroke="#111111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Centre dot — orange -->
+    <circle cx="36" cy="36" r="5" fill="#ffa500"/>
+  </g>
+</svg>

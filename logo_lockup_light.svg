@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" width="220" height="180" role="img" aria-label="X-FatHub Stacked Lockup — On Light">
+  <title>X-FatHub On Light</title>
+  <defs>
+    <style>
+      .lk-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 34px; letter-spacing: -1px; }
+      .lk-tag  { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; }
+    </style>
+  </defs>
+
+  <!-- White card -->
+  <rect x="0" y="0" width="220" height="180" rx="24" ry="24" fill="#ffffff"/>
+
+  <!-- Icon centred: 72×72 at x=74, y=18 -->
+  <g transform="translate(74,18)">
+    <line x1="14" y1="14" x2="58" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+    <line x1="58" y1="14" x2="14" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+    <!-- ECG pulse — dark on white -->
+    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
+      stroke="#111111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Centre dot — orange -->
+    <circle cx="36" cy="36" r="5" fill="#ffa500"/>
+  </g>
+
+  <!-- App name centred -->
+  <text x="110" y="120" text-anchor="middle" class="lk-name">
+    <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
+  </text>
+  <!-- Tagline -->
+  <text x="110" y="138" text-anchor="middle" class="lk-tag" fill="#aaaaaa">Track · Burn · Thrive</text>
+</svg>

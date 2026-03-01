@@ -1,0 +1,188 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 880 260"
+  width="880"
+  height="260"
+  role="img"
+  aria-label="X-FatHub Logo System — Icon Mark, Horizontal Wordmark, On Dark, On Orange"
+>
+  <title>X-FatHub Logo System</title>
+  <desc>All four official X-FatHub logo variants: Icon Mark, Horizontal Wordmark, On Dark background, On Orange background.</desc>
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap');
+
+      .brand-font {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+      }
+      .tagline-font {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+      }
+      .label-font {
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+    </style>
+
+    <!-- Reusable icon mark: orange X + white ECG pulse + orange centre dot -->
+    <!-- Scaled to 72×72 viewport, used via <use> with transform -->
+    <g id="icon-core-on-dark">
+      <!-- X strokes — orange -->
+      <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <!-- ECG / heart-rate pulse — white -->
+      <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+        stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Centre accent dot — orange -->
+      <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+    </g>
+
+    <g id="icon-core-on-orange">
+      <!-- X strokes — black -->
+      <line x1="18" y1="18" x2="54" y2="54" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
+      <line x1="54" y1="18" x2="18" y2="54" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
+      <!-- ECG pulse — white -->
+      <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+        stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Centre dot — black -->
+      <circle cx="36" cy="36" r="4.5" fill="#000000"/>
+    </g>
+
+    <!-- Rounded-rect clip for icon containers -->
+    <clipPath id="clip-icon-a">
+      <rect x="0" y="0" width="120" height="120" rx="28" ry="28"/>
+    </clipPath>
+    <clipPath id="clip-icon-b">
+      <rect x="0" y="0" width="52" height="52" rx="14" ry="14"/>
+    </clipPath>
+    <clipPath id="clip-icon-c">
+      <rect x="0" y="0" width="80" height="80" rx="20" ry="20"/>
+    </clipPath>
+    <clipPath id="clip-icon-d">
+      <rect x="0" y="0" width="80" height="80" rx="20" ry="20"/>
+    </clipPath>
+  </defs>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COLUMN A — ICON MARK (standalone)
+       Position: x=40, centred in 200px column
+  ═══════════════════════════════════════════════════════════════ -->
+  <g id="variant-a" transform="translate(40, 30)">
+    <!-- Card background -->
+    <rect x="0" y="0" width="120" height="120" rx="28" ry="28" fill="#111111" stroke="#1e1e1e" stroke-width="1.5"/>
+    <!-- Radial glow -->
+    <radialGradient id="glow-a" cx="50%" cy="0%" r="80%">
+      <stop offset="0%" stop-color="#ffa500" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#ffa500" stop-opacity="0"/>
+    </radialGradient>
+    <rect x="0" y="0" width="120" height="120" rx="28" ry="28" fill="url(#glow-a)"/>
+    <!-- Icon centred at 60,60 within 120×120 card; icon core is 72×72 so scale ≈ 0.972, offset = (120−72)/2 = 24 -->
+    <g transform="translate(24, 24) scale(1)">
+      <use xlink:href="#icon-core-on-dark"/>
+    </g>
+    <!-- Label -->
+    <text x="60" y="148" text-anchor="middle" class="label-font" font-size="9" fill="#555555">Icon Mark</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COLUMN B — HORIZONTAL WORDMARK
+       Position: x=200, width ~260
+  ═══════════════════════════════════════════════════════════════ -->
+  <g id="variant-b" transform="translate(200, 30)">
+    <!-- Pill card -->
+    <rect x="0" y="0" width="260" height="120" rx="20" ry="20" fill="#111111" stroke="#1e1e1e" stroke-width="1.5"/>
+    <!-- Orange icon badge: 52×52, top-left at (20, 34) -->
+    <g transform="translate(20, 34)">
+      <rect x="0" y="0" width="52" height="52" rx="14" ry="14" fill="#ffa500"/>
+      <!-- Scale icon core (72→52): factor = 52/72 ≈ 0.722 -->
+      <g transform="scale(0.722)">
+        <use xlink:href="#icon-core-on-orange"/>
+      </g>
+    </g>
+    <!-- App name text -->
+    <text x="88" y="70" class="brand-font" font-size="28" fill="#ffffff">
+      <tspan fill="#ffa500">X</tspan><tspan fill="#ffffff">-FatHub</tspan>
+    </text>
+    <!-- Tagline -->
+    <text x="89" y="90" class="tagline-font" font-size="9" fill="#666666">Track · Burn · Thrive</text>
+    <!-- Label -->
+    <text x="130" y="148" text-anchor="middle" class="label-font" font-size="9" fill="#555555">Horizontal Wordmark</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COLUMN C — ON DARK (full lockup, dark bg)
+       Position: x=500, width ~160
+  ═══════════════════════════════════════════════════════════════ -->
+  <g id="variant-c" transform="translate(500, 30)">
+    <!-- Dark card -->
+    <rect x="0" y="0" width="160" height="120" rx="20" ry="20" fill="#111111" stroke="#1e1e1e" stroke-width="1.5"/>
+    <!-- Radial glow -->
+    <radialGradient id="glow-c" cx="50%" cy="10%" r="70%">
+      <stop offset="0%" stop-color="#ffa500" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#ffa500" stop-opacity="0"/>
+    </radialGradient>
+    <rect x="0" y="0" width="160" height="120" rx="20" ry="20" fill="url(#glow-c)"/>
+    <!-- Icon: 56×56, centred at x=(160−56)/2=52, y=14 -->
+    <g transform="translate(52, 14) scale(0.778)">
+      <!-- 0.778 = 56/72 -->
+      <use xlink:href="#icon-core-on-dark"/>
+    </g>
+    <!-- App name -->
+    <text x="80" y="88" text-anchor="middle" class="brand-font" font-size="22" fill="#ffffff">
+      <tspan fill="#ffa500">X</tspan><tspan fill="#ffffff">-FatHub</tspan>
+    </text>
+    <!-- Tagline -->
+    <text x="80" y="102" text-anchor="middle" class="tagline-font" font-size="7.5" fill="#666666">Track · Burn · Thrive</text>
+    <!-- Label -->
+    <text x="80" y="148" text-anchor="middle" class="label-font" font-size="9" fill="#555555">On Dark</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       COLUMN D — ON ORANGE (full lockup, orange bg)
+       Position: x=700, width ~160
+  ═══════════════════════════════════════════════════════════════ -->
+  <g id="variant-d" transform="translate(700, 30)">
+    <!-- Orange card -->
+    <linearGradient id="grad-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa500"/>
+      <stop offset="100%" stop-color="#ff6b00"/>
+    </linearGradient>
+    <rect x="0" y="0" width="160" height="120" rx="20" ry="20" fill="url(#grad-d)"/>
+    <!-- Icon: 56×56, centred at x=(160−56)/2=52, y=14 -->
+    <g transform="translate(52, 14) scale(0.778)">
+      <use xlink:href="#icon-core-on-orange"/>
+    </g>
+    <!-- App name (black on orange) -->
+    <text x="80" y="88" text-anchor="middle" class="brand-font" font-size="22" fill="#000000">
+      <tspan>X-FatHub</tspan>
+    </text>
+    <!-- Tagline -->
+    <text x="80" y="102" text-anchor="middle" class="tagline-font" font-size="7.5" fill="rgba(0,0,0,0.5)">Track · Burn · Thrive</text>
+    <!-- Label -->
+    <text x="80" y="148" text-anchor="middle" class="label-font" font-size="9" fill="#555555">On Orange</text>
+  </g>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       FOOTER — file identity strip
+  ═══════════════════════════════════════════════════════════════ -->
+  <text x="440" y="232" text-anchor="middle"
+    font-family="'Inter', system-ui, sans-serif" font-size="9"
+    font-weight="700" letter-spacing="2" fill="#333333" text-transform="uppercase">
+    X-FATHUB · LOGO SYSTEM · © 2026
+  </text>
+  <text x="440" y="248" text-anchor="middle"
+    font-family="'Inter', system-ui, sans-serif" font-size="8"
+    fill="#222222" letter-spacing="1">
+    Primary Orange #FFA500 · True Black #000000 · Pure White #FFFFFF
+  </text>
+
+</svg>

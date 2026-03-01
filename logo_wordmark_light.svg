@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 88" width="300" height="88" role="img" aria-label="X-FatHub Horizontal Wordmark — Light">
+  <title>X-FatHub Horizontal Wordmark Light</title>
+  <defs>
+    <style>
+      .wm-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.5px; }
+      .wm-tag  { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; }
+    </style>
+    <linearGradient id="bg-wml" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa500"/>
+      <stop offset="100%" stop-color="#ff6b00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- White card -->
+  <rect x="0" y="0" width="300" height="88" rx="22" ry="22" fill="#ffffff"/>
+
+  <!-- Orange icon badge -->
+  <rect x="16" y="16" width="56" height="56" rx="16" ry="16" fill="url(#bg-wml)"/>
+  <g transform="translate(16,16) scale(0.778)">
+    <line x1="14" y1="14" x2="58" y2="58" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
+    <line x1="58" y1="14" x2="14" y2="58" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
+    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
+      stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle cx="36" cy="36" r="5.5" fill="#000000"/>
+  </g>
+
+  <!-- App name — orange X, black rest -->
+  <text x="88" y="52" class="wm-name">
+    <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
+  </text>
+  <!-- Tagline — grey -->
+  <text x="90" y="68" class="wm-tag" fill="#aaaaaa">Track · Burn · Thrive</text>
+</svg>
