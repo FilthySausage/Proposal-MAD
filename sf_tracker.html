@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuse · Step & Hydration · Orange/Black</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      min-height: 100vh;
+      font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    /* phone container – 320x720, black, orange details */
+    .phone {
+      width: 320px;
+      min-height: 720px;
+      background: #000000;
+      padding: 20px 16px 16px 16px;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 36px;
+      scrollbar-width: thin;
+      scrollbar-color: #ffa500 #1a1a1a;
+    }
+
+    .phone::-webkit-scrollbar {
+      width: 4px;
+    }
+    .phone::-webkit-scrollbar-track {
+      background: #1a1a1a;
+    }
+    .phone::-webkit-scrollbar-thumb {
+      background: #ffa500;
+      border-radius: 4px;
+    }
+
+    /* header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffa500;
+      margin-bottom: 16px;
+    }
+    .header i {
+      font-size: 1.4rem;
+      color: #ffa500;
+    }
+
+    /* ----- LEFT SCREEN (step) ----- */
+    .progress-circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(#ffa500 0deg 294deg, #262626 294deg 360deg); /* 8150/10000 ≈ 81.5% → 294° */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 12px;
+    }
+    .progress-inner {
+      width: 160px;
+      height: 160px;
+      background: #000000;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: inset 0 2px 8px rgba(255,165,0,0.2);
+    }
+    .steps-number {
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1;
+      color: white;
+    }
+    .steps-label {
+      font-size: 14px;
+      color: #ccc;
+    }
+    .goal-edit-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin: 8px 0 6px;
+    }
+    .goal-badge {
+      background: #1f1f1f;
+      padding: 5px 14px;
+      border-radius: 40px;
+      color: #ffa500;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid #333;
+    }
+    .goal-edit-row i {
+      color: #ffa500;
+      background: #1a1a1a;
+      padding: 8px;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      cursor: default;
+    }
+
+    /* cards for kcal & km */
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 18px 0 20px;
+    }
+    .card {
+      flex: 1;
+      background: #1a1a1a;
+      border-radius: 18px;
+      padding: 14px 8px;
+      text-align: center;
+      color: white;
+      border: 1px solid #2a2a2a;
+    }
+    .card .icon {
+      font-size: 24px;
+      color: #ffa500;
+      margin-bottom: 6px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin: 4px 0 2px;
+    }
+    .card p {
+      font-size: 0.7rem;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    /* 7‑day bar chart (from original) */
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .bars-container {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 90px;
+      margin: 8px 0 14px;
+    }
+    .bar-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .bar {
+      width: 100%;
+      background: #ffa500;
+      border-radius: 6px 6px 0 0;
+      min-height: 2px;
+    }
+    .bar-label {
+      font-size: 0.6rem;
+      color: #aaa;
+    }
+
+    /* reset button */
+    .reset-btn {
+      background: transparent;
+      border: 1.5px solid #ffa500;
+      color: #ffa500;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 8px 14px;
+      border-radius: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: default;
+      margin: 8px 0 12px;
+    }
+
+    /* reminder */
+    .reminder {
+      border: 1px solid #ffa500;
+      color: #ffa500;
+      padding: 10px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      text-align: center;
+      background: #0d0d0d;
+      margin: 12px 0 8px;
+    }
+
+    /* ----- RIGHT SCREEN (hydration) ----- */
+    .hydration-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: conic-gradient(#ffa500 0deg 216deg, #262626 216deg 360deg); /* 1.2L/2.0L = 60% → 216° */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px auto 18px;
+    }
+    .hydration-inner {
+      width: 140px;
+      height: 140px;
+      background: #000000;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hydration-inner h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      color: white;
+    }
+    .hydration-inner p {
+      margin: 2px 0;
+      font-size: 11px;
+      color: #aaa;
+    }
+
+    .quick-add {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 18px 0 20px;
+    }
+    .quick-btn {
+      flex: 1;
+      background: #ffa500;
+      border-radius: 50px;
+      padding: 12px 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #000;
+      font-weight: 700;
+      cursor: default;
+      box-shadow: 0 4px 10px rgba(255,165,0,0.2);
+    }
+
+    /* log list with edit/delete (inspired by original) */
+    .log {
+      margin-top: 8px;
+    }
+    .entry-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #121212;
+      padding: 12px 16px;
+      border-radius: 50px;
+      margin-bottom: 10px;
+      border: 1px solid #262626;
+    }
+    .entry-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .entry-amount {
+      font-weight: 700;
+      color: #ffa500;
+      background: #1f1f1f;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+    }
+    .entry-time {
+      color: #ccc;
+      font-size: 0.8rem;
+    }
+    .entry-actions {
+      display: flex;
+      gap: 15px;
+      color: #666;
+    }
+    .entry-actions i {
+      cursor: default;
+      font-size: 1rem;
+    }
+    .fa-pen-to-square {
+      color: #ffa500;
+    }
+    .fa-trash-can {
+      color: #ffa500;
+      opacity: 0.8;
+    }
+
+    /* hint note */
+    .hint-note {
+      font-size: 0.65rem;
+      color: #555;
+      text-align: center;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border-top: 1px dashed #2a2a2a;
+      padding-top: 14px;
+    }
+    .hint-note i {
+      color: #ffa500;
+    }
+
+    /* bottom navigation (common) */
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #222;
+      padding-top: 12px;
+      font-size: 0.7rem;
+      margin-top: 12px;
+    }
+    .nav div {
+      text-align: center;
+      color: #aaa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav i {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    .nav .actives i,
+    .nav .actives {
+      color: #ffa500;
+    }
+
+    /* micro spacing */
+    .spacer {
+      height: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- LEFT PHONE : STEP TRACKER (sensor driven + bar chart + reset) -->
+  <div class="phone">
+    <div style="flex:1;">
+      <div class="header">
+        <span><i class="fas fa-shoe-prints" style="margin-right:8px;"></i>Step Tracker</span>
+        <i class="fas fa-sliders-h"></i>
+      </div>
+
+      <!-- circular progress with steps -->
+      <div class="progress-circle">
+        <div class="progress-inner">
+          <span class="steps-number">8,150</span>
+          <span class="steps-label">STEPS</span>
+        </div>
+      </div>
+
+      <!-- goal + edit (update feature) -->
+      <div class="goal-edit-row">
+        <span class="goal-badge"><i class="far fa-flag" style="margin-right:6px;"></i>10,000 Steps</span>
+        <i class="fas fa-pencil-alt" title="edit goal"></i>
+      </div>
+
+      <!-- kcal & km cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="icon"><i class="fas fa-fire"></i></div>
+          <h3>350</h3>
+          <p>Kcal</p>
+        </div>
+        <div class="card">
+          <div class="icon"><i class="fas fa-person-walking"></i></div>
+          <h3>6.5 km</h3>
+          <p>Distance</p>
+        </div>
+      </div>
+
+      <!-- 7‑day bar chart (read feature) -->
+      <div class="chart-header">
+        <span><i class="far fa-calendar-alt" style="margin-right:4px;"></i> Last 7 Days</span>
+        <span>Avg 6,400</span>
+      </div>
+      <div class="bars-container">
+        <div class="bar-item"><div class="bar" style="height: 52px;"></div><span class="bar-label">M</span></div>
+        <div class="bar-item"><div class="bar" style="height: 71px;"></div><span class="bar-label">T</span></div>
+        <div class="bar-item"><div class="bar" style="height: 43px;"></div><span class="bar-label">W</span></div>
+        <div class="bar-item"><div class="bar" style="height: 89px;"></div><span class="bar-label">T</span></div>
+        <div class="bar-item"><div class="bar" style="height: 62px;"></div><span class="bar-label">F</span></div>
+        <div class="bar-item"><div class="bar" style="height: 75px;"></div><span class="bar-label">S</span></div>
+        <div class="bar-item"><div class="bar" style="height: 48px;"></div><span class="bar-label">S</span></div>
+      </div>
+
+      <!-- reset data button (delete feature) -->
+      <div style="display: flex; justify-content: flex-start;">
+        <div class="reset-btn">
+          <i class="fas fa-undo-alt"></i> Reset Data
+        </div>
+      </div>
+
+      <!-- reminder (ambient) -->
+      <div class="reminder">
+        <i class="fas fa-hourglass-half" style="margin-right:6px;"></i> Stretch! Still for 1h
+      </div>
+    </div>
+
+    <!-- bottom navigation -->
+    <div class="nav">
+      <div><i class="fas fa-walking"></i>Post</div>
+      <div><i class="fas fa-box-open"></i>Packages</div>
+      <div><i class="fas fa-chart-pie"></i>Home</div>
+      <div class="actives"><i class="fas fa-shoe-prints"></i>Tracker</div>
+      <div><i class="fas fa-user"></i>Profile</div>
+    </div>
+  </div>
+
+  <!-- RIGHT PHONE : HYDRATION LOG (user driven + edit/delete) -->
+  <div class="phone">
+    <div style="flex:1;">
+      <div class="header">
+        <span><i class="fas fa-droplet" style="margin-right:8px;"></i>Hydration Log</span>
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+
+      <!-- progress ring 1.2L / 2.0L -->
+      <div class="hydration-circle">
+        <div class="hydration-inner">
+          <h2>1.2 L</h2>
+          <p>Consumed</p>
+          <p style="color:#ffa500;">Goal 2.0 L</p>
+        </div>
+      </div>
+
+      <!-- quick add buttons (create) -->
+      <div class="quick-add">
+        <div class="quick-btn"><i class="fas fa-plus" style="margin-right:4px;"></i>250ml</div>
+        <div class="quick-btn"><i class="fas fa-plus" style="margin-right:4px;"></i>500ml</div>
+        <div class="quick-btn"><i class="fas fa-plus" style="margin-right:4px;"></i>1L</div>
+      </div>
+
+      <!-- entry list with update/delete icons -->
+      <div class="log">
+        <div class="entry-item">
+          <div class="entry-left">
+            <span class="entry-amount">500ml</span>
+            <span class="entry-time">11:15 AM</span>
+          </div>
+          <div class="entry-actions">
+            <i class="fas fa-pen-to-square" title="edit (update)"></i>
+            <i class="fas fa-trash-can" title="delete"></i>
+          </div>
+        </div>
+        <div class="entry-item">
+          <div class="entry-left">
+            <span class="entry-amount">250ml</span>
+            <span class="entry-time">09:00 AM</span>
+          </div>
+          <div class="entry-actions">
+            <i class="fas fa-pen-to-square" title="edit (update)"></i>
+            <i class="fas fa-trash-can" title="delete"></i>
+          </div>
+        </div>
+        <div class="entry-item">
+          <div class="entry-left">
+            <span class="entry-amount">250ml</span>
+            <span class="entry-time">07:30 AM</span>
+          </div>
+          <div class="entry-actions">
+            <i class="fas fa-pen-to-square" title="edit (update)"></i>
+            <i class="fas fa-trash-can" title="delete"></i>
+          </div>
+        </div>
+        <div class="entry-item">
+          <div class="entry-left">
+            <span class="entry-amount">250ml</span>
+            <span class="entry-time">06:45 PM</span>
+          </div>
+          <div class="entry-actions">
+            <i class="fas fa-pen-to-square" title="edit (update)"></i>
+            <i class="fas fa-trash-can" title="delete"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- hint for swipe/edit (visual only) -->
+      <div class="hint-note">
+        <i class="fas fa-arrow-left"></i> Swipe left to delete · Tap entry to edit <i class="fas fa-pen"></i>
+      </div>
+    </div>
+
+        <!-- bottom navigation -->
+    <div class="nav">
+      <div><i class="fas fa-walking"></i>Post</div>
+      <div><i class="fas fa-box-open"></i>Packages</div>
+      <div><i class="fas fa-chart-pie"></i>Home</div>
+      <div class="actives"><i class="fas fa-shoe-prints"></i>Tracker</div>
+      <div><i class="fas fa-user"></i>Profile</div>
+    </div>
+  </div>
+</body>
+</html>
