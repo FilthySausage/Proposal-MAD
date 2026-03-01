@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>X-FatHub · Branding · Logo · Splash · Palette</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0a0a0a;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: #fff;
+      padding: 40px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 60px;
+    }
+
+    /* ── Section header ── */
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #ffa500;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 28px;
+      color: #fff;
+    }
+    .section-title span { color: #ffa500; }
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: #ffa500;
+      border-radius: 4px;
+      margin: 0 auto 28px;
+    }
+
+    /* ══════════════════════════════
+       SECTION 1 — LOGO VARIANTS
+    ══════════════════════════════ */
+    .logo-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-card .label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* -- Icon mark -- */
+    .logo-icon {
+      width: 120px;
+      height: 120px;
+      background: #111;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #1e1e1e;
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-icon::before {
+      content: '';
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle at 50% 0%, rgba(255,165,0,0.14) 0%, transparent 70%);
+    }
+    .logo-icon svg { position: relative; z-index: 1; }
+
+    /* -- Wordmark horizontal -- */
+    .logo-wordmark-h {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #111;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 18px 28px;
+    }
+    .logo-wordmark-h .icon-sm {
+      width: 52px;
+      height: 52px;
+      background: #ffa500;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-wordmark-h .text-part .app-name {
+      font-size: 1.6rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-wordmark-h .text-part .app-name .x { color: #ffa500; }
+    .logo-wordmark-h .text-part .app-name .rest { color: #fff; }
+    .logo-wordmark-h .text-part .tagline {
+      font-size: 0.62rem;
+      font-weight: 500;
+      color: #666;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    /* -- Dark background variant -- */
+    .logo-on-dark {
+      background: #000;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 20px;
+      padding: 28px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* -- Orange background variant -- */
+    .logo-on-orange {
+      background: #ffa500;
+      border-radius: 20px;
+      padding: 28px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-on-orange .app-name .x { color: #000; }
+    .logo-on-orange .app-name .rest { color: #000; }
+    .logo-on-orange .tagline { color: rgba(0,0,0,0.55) !important; }
+
+    .app-name-lg {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    .app-name-lg .x { color: #ffa500; }
+    .app-name-lg .rest { color: #fff; }
+    .tagline-lg {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ══════════════════════════════
+       SECTION 2 — COLOR PALETTE
+    ══════════════════════════════ */
+    .palette-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      max-width: 760px;
+    }
+    .swatch-card {
+      width: 140px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #1e1e1e;
+    }
+    .swatch-box {
+      height: 80px;
+      width: 100%;
+    }
+    .swatch-info {
+      background: #111;
+      padding: 10px 12px;
+    }
+    .swatch-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+    .swatch-hex {
+      font-size: 0.65rem;
+      font-weight: 600;
+      color: #ffa500;
+      letter-spacing: 0.5px;
+      font-family: 'Courier New', monospace;
+    }
+    .swatch-role {
+      font-size: 0.6rem;
+      color: #555;
+      margin-top: 3px;
+    }
+
+    /* gradient swatch */
+    .swatch-gradient {
+      background: linear-gradient(135deg, #ffa500 0%, #ff6b00 100%);
+    }
+
+    /* ══════════════════════════════
+       SECTION 3 — SPLASH / LOADING
+    ══════════════════════════════ */
+    .splash-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .phone {
+      width: 320px;
+      min-height: 720px;
+      background: #000;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 36px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* notch */
+    .phone-notch {
+      width: 90px;
+      height: 26px;
+      background: #000;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 0 0 18px 18px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    /* ── Splash A: Full logo centred ── */
+    .splash-a {
+      background: #000;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      padding: 48px 32px 80px;
+      position: relative;
+    }
+    .splash-a::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse 280px 280px at 50% 38%, rgba(255,165,0,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .splash-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* big icon for splash */
+    .splash-icon {
+      width: 110px;
+      height: 110px;
+      background: linear-gradient(145deg, #1a1000, #0d0d0d);
+      border: 2px solid #ffa500;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(255,165,0,0.18), 0 8px 32px rgba(0,0,0,0.6);
+    }
+
+    .splash-app-name {
+      font-size: 2.6rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1;
+      text-align: center;
+    }
+    .splash-app-name .x { color: #ffa500; }
+    .splash-app-name .rest { color: #fff; }
+
+    .splash-tagline {
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: #666;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: -6px;
+    }
+
+    /* loading bar */
+    .splash-progress-wrap {
+      position: relative;
+      z-index: 1;
+      width: 140px;
+      margin-top: 52px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .splash-progress-track {
+      width: 100%;
+      height: 3px;
+      background: #1e1e1e;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    .splash-progress-fill {
+      height: 100%;
+      width: 65%;
+      background: linear-gradient(90deg, #ff6b00, #ffa500);
+      border-radius: 50px;
+      animation: loadFill 2s ease-in-out infinite;
+    }
+    @keyframes loadFill {
+      0%   { width: 10%; opacity: 0.6; }
+      60%  { width: 80%; opacity: 1; }
+      100% { width: 100%; opacity: 0.8; }
+    }
+    .splash-loading-text {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    /* bottom version tag */
+    .splash-version {
+      position: absolute;
+      bottom: 28px;
+      left: 0; right: 0;
+      text-align: center;
+      font-size: 0.58rem;
+      color: #2a2a2a;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Splash B: Onboarding / Welcome ── */
+    .splash-b {
+      background: #000;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* hero illustration area */
+    .onboard-hero {
+      flex: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 340px;
+      overflow: hidden;
+    }
+
+    /* big decorative circle */
+    .hero-circle {
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,165,0,0.12) 0%, transparent 70%);
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero-ring {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,165,0,0.15);
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero-ring-2 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,165,0,0.1);
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    /* center icon block */
+    .hero-icon-block {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .hero-big-icon {
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(145deg, #1a1000, #0f0f0f);
+      border: 2px solid #ffa500;
+      border-radius: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(255,165,0,0.2);
+    }
+
+    /* floating stat chips */
+    .float-chip {
+      position: absolute;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 50px;
+      padding: 7px 14px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 3;
+      white-space: nowrap;
+    }
+    .float-chip i { color: #ffa500; }
+    .chip-steps  { top: 55px;  left: 16px; }
+    .chip-kcal   { top: 55px;  right: 16px; }
+    .chip-water  { bottom: 60px; left: 16px; }
+    .chip-streak { bottom: 60px; right: 16px; }
+
+    /* bottom card */
+    .onboard-card {
+      background: #0d0d0d;
+      border-top: 1px solid #1e1e1e;
+      border-radius: 30px 30px 0 0;
+      padding: 28px 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .onboard-dots {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+    }
+    .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #2a2a2a;
+    }
+    .dot.active {
+      width: 20px;
+      border-radius: 50px;
+      background: #ffa500;
+    }
+    .onboard-heading {
+      font-size: 1.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: #fff;
+      text-align: center;
+    }
+    .onboard-heading span { color: #ffa500; }
+    .onboard-body {
+      font-size: 0.75rem;
+      color: #666;
+      text-align: center;
+      line-height: 1.6;
+    }
+    .onboard-cta {
+      background: #ffa500;
+      color: #000;
+      font-weight: 800;
+      font-size: 0.9rem;
+      padding: 16px 0;
+      border-radius: 50px;
+      text-align: center;
+      letter-spacing: 0.3px;
+      box-shadow: 0 6px 20px rgba(255,165,0,0.3);
+    }
+    .onboard-skip {
+      text-align: center;
+      font-size: 0.7rem;
+      color: #444;
+    }
+
+    /* ── Splash C: PIN / Auth screen ── */
+    .splash-c {
+      background: #000;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 28px 36px;
+      gap: 0;
+      position: relative;
+    }
+
+    /* mini logo at top */
+    .auth-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+    .auth-logo-icon {
+      width: 40px; height: 40px;
+      background: #ffa500;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .auth-logo-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+    .auth-logo-name .x { color: #ffa500; }
+    .auth-logo-name .rest { color: #fff; }
+
+    .auth-greeting {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .auth-sub {
+      font-size: 0.72rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    /* avatar ring */
+    .auth-avatar {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a1000, #111);
+      border: 2.5px solid #ffa500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      box-shadow: 0 0 20px rgba(255,165,0,0.15);
+    }
+    .auth-avatar i { font-size: 2rem; color: #ffa500; }
+    .auth-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+
+    /* PIN dots */
+    .pin-dots {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .pin-dot {
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      border: 2px solid #333;
+      background: transparent;
+    }
+    .pin-dot.filled { background: #ffa500; border-color: #ffa500; }
+
+    /* PIN pad */
+    .pin-pad {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 240px;
+    }
+    .pin-key {
+      background: #111;
+      border: 1px solid #1e1e1e;
+      border-radius: 50%;
+      width: 68px; height: 68px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      cursor: default;
+    }
+    .pin-key .num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .pin-key .letters {
+      font-size: 0.45rem;
+      font-weight: 600;
+      color: #444;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .pin-key.action {
+      background: transparent;
+      border-color: transparent;
+    }
+    .pin-key.action i { font-size: 1.1rem; color: #ffa500; }
+    .pin-key.action .del { font-size: 0.7rem; color: #555; margin-top: 2px; }
+
+    /* biometric button */
+    .biometric-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 22px;
+      font-size: 0.72rem;
+      color: #ffa500;
+      font-weight: 600;
+    }
+    .biometric-btn i { font-size: 1rem; }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       SECTION 1 — LOGO MARK & VARIANTS
+  ══════════════════════════════════════════ -->
+  <div style="width:100%;max-width:800px;text-align:center;">
+    <div class="section-label">Brand Identity</div>
+    <div class="section-title">X-FatHub <span>Logo</span> System</div>
+    <div class="divider"></div>
+
+    <div class="logo-grid">
+
+      <!-- A: Icon mark alone -->
+      <div class="logo-card">
+        <div class="logo-icon">
+          <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Bold X slash lines -->
+            <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+            <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+            <!-- Heart-rate pulse line across centre -->
+            <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+              stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Dot accent -->
+            <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+          </svg>
+        </div>
+        <span class="label">Icon Mark</span>
+      </div>
+
+      <!-- B: Wordmark horizontal -->
+      <div class="logo-card">
+        <div class="logo-wordmark-h">
+          <div class="icon-sm">
+            <svg width="30" height="30" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="18" x2="54" y2="54" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+              <line x1="54" y1="18" x2="18" y2="54" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+              <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+                stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="36" cy="36" r="5" fill="#000"/>
+            </svg>
+          </div>
+          <div class="text-part">
+            <div class="app-name"><span class="x">X</span><span class="rest">-FatHub</span></div>
+            <div class="tagline">Track · Burn · Thrive</div>
+          </div>
+        </div>
+        <span class="label">Horizontal Wordmark</span>
+      </div>
+
+      <!-- C: On dark background -->
+      <div class="logo-card">
+        <div class="logo-on-dark">
+          <svg width="56" height="56" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+            <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+            <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+              stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+          </svg>
+          <div class="app-name-lg"><span class="x">X</span><span class="rest">-FatHub</span></div>
+          <div class="tagline-lg">Track · Burn · Thrive</div>
+        </div>
+        <span class="label">On Dark</span>
+      </div>
+
+      <!-- D: On orange background -->
+      <div class="logo-card">
+        <div class="logo-on-orange">
+          <svg width="56" height="56" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="18" y1="18" x2="54" y2="54" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+            <line x1="54" y1="18" x2="18" y2="54" stroke="#000" stroke-width="7" stroke-linecap="round"/>
+            <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+              stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="36" cy="36" r="4.5" fill="#000"/>
+          </svg>
+          <div class="app-name-lg" style="color:#000;"><span style="color:#000;" class="x">X</span><span style="color:#000;" class="rest">-FatHub</span></div>
+          <div class="tagline-lg" style="color:rgba(0,0,0,0.5);">Track · Burn · Thrive</div>
+        </div>
+        <span class="label">On Orange</span>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 2 — COLOR PALETTE
+  ══════════════════════════════════════════ -->
+  <div style="width:100%;max-width:800px;text-align:center;">
+    <div class="section-label">Design System</div>
+    <div class="section-title">UI <span>Color</span> Palette</div>
+    <div class="divider"></div>
+
+    <div class="palette-grid">
+
+      <!-- Primary -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#ffa500;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Primary Orange</div>
+          <div class="swatch-hex">#FFA500</div>
+          <div class="swatch-role">Buttons · Active · Highlights</div>
+        </div>
+      </div>
+
+      <!-- Primary Dark -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#ff6b00;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Orange Dark</div>
+          <div class="swatch-hex">#FF6B00</div>
+          <div class="swatch-role">Gradient · Hover · Glow</div>
+        </div>
+      </div>
+
+      <!-- Gradient -->
+      <div class="swatch-card">
+        <div class="swatch-box swatch-gradient"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brand Gradient</div>
+          <div class="swatch-hex">#FF6B00 → #FFA500</div>
+          <div class="swatch-role">CTA · Progress · Fill</div>
+        </div>
+      </div>
+
+      <!-- True Black -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#000000; border-bottom:1px solid #1e1e1e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">True Black</div>
+          <div class="swatch-hex">#000000</div>
+          <div class="swatch-role">App Background · Phone BG</div>
+        </div>
+      </div>
+
+      <!-- Surface 1 -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#0d0d0d; border-bottom:1px solid #1e1e1e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface 1</div>
+          <div class="swatch-hex">#0D0D0D</div>
+          <div class="swatch-role">Cards · Bottom Sheets</div>
+        </div>
+      </div>
+
+      <!-- Surface 2 -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#111111; border-bottom:1px solid #1e1e1e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface 2</div>
+          <div class="swatch-hex">#111111</div>
+          <div class="swatch-role">Entry Items · List Rows</div>
+        </div>
+      </div>
+
+      <!-- Surface 3 -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#1a1a1a; border-bottom:1px solid #1e1e1e;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Surface 3</div>
+          <div class="swatch-hex">#1A1A1A</div>
+          <div class="swatch-role">Stat Cards · Icons BG</div>
+        </div>
+      </div>
+
+      <!-- Border -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#1e1e1e; border-bottom:1px solid #333;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border Default</div>
+          <div class="swatch-hex">#1E1E1E</div>
+          <div class="swatch-role">Card Borders · Dividers</div>
+        </div>
+      </div>
+
+      <!-- Border Subtle -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#2a2a2a; border-bottom:1px solid #333;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Border Subtle</div>
+          <div class="swatch-hex">#2A2A2A</div>
+          <div class="swatch-role">Progress Track · Inactive</div>
+        </div>
+      </div>
+
+      <!-- Text Primary -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#ffffff;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Primary</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-role">Headings · Values</div>
+        </div>
+      </div>
+
+      <!-- Text Secondary -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#aaaaaa;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Secondary</div>
+          <div class="swatch-hex">#AAAAAA</div>
+          <div class="swatch-role">Sub-labels · Meta</div>
+        </div>
+      </div>
+
+      <!-- Text Muted -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#555555;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Text Muted</div>
+          <div class="swatch-hex">#555555</div>
+          <div class="swatch-role">Hints · Placeholders</div>
+        </div>
+      </div>
+
+      <!-- Status: Success -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#4caf50;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Status: Done</div>
+          <div class="swatch-hex">#4CAF50</div>
+          <div class="swatch-role">Completed Bookings</div>
+        </div>
+      </div>
+
+      <!-- Status: Danger -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#e74c3c;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Status: Cancel</div>
+          <div class="swatch-hex">#E74C3C</div>
+          <div class="swatch-role">Cancelled · Delete</div>
+        </div>
+      </div>
+
+      <!-- Status: Warning -->
+      <div class="swatch-card">
+        <div class="swatch-box" style="background:#ff6b35;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Status: Alert</div>
+          <div class="swatch-hex">#FF6B35</div>
+          <div class="swatch-role">Low Spots · Warnings</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       SECTION 3 — SPLASH / LOADING SCREENS
+  ══════════════════════════════════════════ -->
+  <div style="width:100%;max-width:1100px;text-align:center;">
+    <div class="section-label">First Launch Experience</div>
+    <div class="section-title">Splash &amp; <span>Loading</span> Screens</div>
+    <div class="divider"></div>
+
+    <div class="splash-row">
+
+      <!-- ── SCREEN A: Pure Splash / Boot screen ── -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="splash-a">
+            <div class="splash-logo-wrap">
+              <div class="splash-icon">
+                <svg width="62" height="62" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+                  <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+                  <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+                    stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+                </svg>
+              </div>
+              <div class="splash-app-name"><span class="x">X</span><span class="rest">-FatHub</span></div>
+              <div class="splash-tagline">Track · Burn · Thrive</div>
+            </div>
+
+            <div class="splash-progress-wrap">
+              <div class="splash-progress-track">
+                <div class="splash-progress-fill"></div>
+              </div>
+              <div class="splash-loading-text">Loading your data…</div>
+            </div>
+
+            <div class="splash-version">Version 1.0.0 · © 2026 X-FatHub</div>
+          </div>
+        </div>
+        <span style="font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:1px;">A · Boot / Splash</span>
+      </div>
+
+
+      <!-- ── SCREEN B: Onboarding / Welcome ── -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="splash-b">
+            <div class="onboard-hero">
+              <div class="hero-circle"></div>
+              <div class="hero-ring"></div>
+              <div class="hero-ring-2"></div>
+
+              <!-- floating chips -->
+              <div class="float-chip chip-steps"><i class="fas fa-shoe-prints"></i>8,150 Steps</div>
+              <div class="float-chip chip-kcal"><i class="fas fa-fire"></i>350 Kcal</div>
+              <div class="float-chip chip-water"><i class="fas fa-droplet"></i>1.2 L</div>
+              <div class="float-chip chip-streak"><i class="fas fa-bolt"></i>7-Day Streak</div>
+
+              <div class="hero-icon-block">
+                <div class="hero-big-icon">
+                  <svg width="50" height="50" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+                    <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+                    <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+                      stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="onboard-card">
+              <div class="onboard-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+              <div class="onboard-heading">Your Fitness,<br><span>All in One Place</span></div>
+              <div class="onboard-body">Track steps, log hydration, book gym classes and manage your fitness packages — all from X-FatHub.</div>
+              <div class="onboard-cta"><i class="fas fa-arrow-right" style="margin-right:8px;"></i>Get Started</div>
+              <div class="onboard-skip">Already have an account? <span style="color:#ffa500;font-weight:600;">Sign In</span></div>
+            </div>
+          </div>
+        </div>
+        <span style="font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:1px;">B · Onboarding</span>
+      </div>
+
+
+      <!-- ── SCREEN C: PIN / Biometric Auth ── -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="splash-c">
+            <!-- Mini logo -->
+            <div class="auth-logo">
+              <div class="auth-logo-icon">
+                <svg width="22" height="22" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <line x1="18" y1="18" x2="54" y2="54" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+                  <line x1="54" y1="18" x2="18" y2="54" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+                  <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+                    stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <circle cx="36" cy="36" r="5" fill="#000"/>
+                </svg>
+              </div>
+              <div class="auth-logo-name"><span class="x">X</span><span class="rest">-FatHub</span></div>
+            </div>
+
+            <div class="auth-greeting">Welcome Back 👋</div>
+            <div class="auth-sub">Enter your PIN to continue</div>
+
+            <!-- Avatar -->
+            <div class="auth-avatar">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="auth-name">Herman · Member</div>
+
+            <!-- PIN dots -->
+            <div class="pin-dots">
+              <div class="pin-dot filled"></div>
+              <div class="pin-dot filled"></div>
+              <div class="pin-dot filled"></div>
+              <div class="pin-dot"></div>
+            </div>
+
+            <!-- PIN pad -->
+            <div class="pin-pad">
+              <div class="pin-key"><span class="num">1</span></div>
+              <div class="pin-key"><span class="num">2</span><span class="letters">ABC</span></div>
+              <div class="pin-key"><span class="num">3</span><span class="letters">DEF</span></div>
+              <div class="pin-key"><span class="num">4</span><span class="letters">GHI</span></div>
+              <div class="pin-key"><span class="num">5</span><span class="letters">JKL</span></div>
+              <div class="pin-key"><span class="num">6</span><span class="letters">MNO</span></div>
+              <div class="pin-key"><span class="num">7</span><span class="letters">PQRS</span></div>
+              <div class="pin-key"><span class="num">8</span><span class="letters">TUV</span></div>
+              <div class="pin-key"><span class="num">9</span><span class="letters">WXYZ</span></div>
+              <div class="pin-key action"></div>
+              <div class="pin-key"><span class="num">0</span></div>
+              <div class="pin-key action"><i class="fas fa-delete-left"></i></div>
+            </div>
+
+            <!-- Biometric -->
+            <div class="biometric-btn">
+              <i class="fas fa-fingerprint"></i> Use Fingerprint
+            </div>
+          </div>
+        </div>
+        <span style="font-size:0.65rem;color:#555;text-transform:uppercase;letter-spacing:1px;">C · PIN Auth</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
