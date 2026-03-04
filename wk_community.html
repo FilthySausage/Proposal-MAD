@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fuse Community Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      min-height: 100vh;
+      font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+      flex-wrap: wrap;
+      padding: 32px 20px;
+    }
+
+    /* Phone Shell */
+    .phone {
+      width: 320px;
+      min-height: 720px;
+      background: #000;
+      padding: 20px 16px 16px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1.5px solid #1e1e1e;
+      border-radius: 36px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-label {
+      position: absolute;
+      top: -26px;
+      left: 0;
+      font-size: 0.65rem;
+      color: #555;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: #ffa500;
+      margin-bottom: 16px;
+    }
+    .header i { font-size: 1.4rem; color: #ffa500; }
+    
+    .back-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      color: #ffa500;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .back-row .left { display: flex; align-items: center; gap: 10px; }
+    .back-row .right-action { color: #ffa500; font-size: 0.8rem; background: #1a1000; padding: 6px 14px; border-radius: 50px; }
+
+    /* Bottom Nav */
+    .nav {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #222;
+      padding-top: 12px;
+      font-size: 0.7rem;
+      margin-top: 12px;
+      background: #000;
+    }
+    .nav div {
+      text-align: center;
+      color: #aaa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .nav i { font-size: 1.2rem; color: #666; }
+    .nav .actives i,
+    .nav .actives { color: #ffa500; }
+
+    /* Category Pills */
+    .pills {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .pills::-webkit-scrollbar { display: none; }
+    .pill {
+      flex-shrink: 0;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border: 1.5px solid #333;
+      color: #aaa;
+      background: #0d0d0d;
+    }
+    .pill.active {
+      background: #ffa500;
+      color: #000;
+      border-color: #ffa500;
+    }
+
+    /* Post Card */
+    .post-card {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 20px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .post-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 36px;
+      height: 36px;
+      background: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffa500;
+      font-size: 1.1rem;
+    }
+    .avatar.user { background: #ffa500; color: #000; }
+    .post-meta { flex: 1; }
+    .post-author { font-size: 0.85rem; font-weight: 700; color: #fff; }
+    .post-time { font-size: 0.65rem; color: #777; margin-top: 2px; }
+    
+    .post-text {
+      font-size: 0.8rem;
+      color: #eee;
+      line-height: 1.4;
+      margin-bottom: 12px;
+    }
+    .post-text .tag { color: #ffa500; font-weight: 600; }
+    
+    .post-media {
+      width: 100%;
+      height: 140px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      font-size: 2rem;
+      border: 1px solid #222;
+    }
+
+    .post-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px dashed #2a2a2a;
+      padding-top: 10px;
+    }
+    .action-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      color: #888;
+      cursor: default;
+    }
+    .action-btn.active { color: #ffa500; }
+    .action-btn i { font-size: 1rem; }
+
+    /* Floating Action Button */
+    .fab-container {
+      position: absolute;
+      bottom: 80px;
+      right: 16px;
+    }
+    .fab {
+      width: 50px;
+      height: 50px;
+      background: #ffa500;
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 4px 14px rgba(255,165,0,0.3);
+    }
+
+    /* Create Post Elements */
+    .create-area {
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      border-radius: 18px;
+      padding: 14px;
+      margin-bottom: 12px;
+      min-height: 180px;
+    }
+    .create-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.85rem;
+      resize: none;
+      outline: none;
+      min-height: 100px;
+    }
+    .create-input::placeholder { color: #555; }
+    
+    .sec-title {
+      font-size: 0.68rem;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin: 14px 0 8px;
+    }
+
+    .add-tools {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tool-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      padding: 12px 14px;
+      border-radius: 14px;
+      color: #aaa;
+      font-size: 0.8rem;
+    }
+    .tool-row i { color: #ffa500; font-size: 1.1rem; width: 20px; text-align: center; }
+
+    /* Comments Section */
+    .comment-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 60px;
+    }
+    .comment-item {
+      display: flex;
+      gap: 10px;
+    }
+    .comment-avatar {
+      width: 30px;
+      height: 30px;
+      background: #1e1e1e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .comment-box {
+      background: #141414;
+      border: 1px solid #222;
+      padding: 10px 12px;
+      border-radius: 0 16px 16px 16px;
+      flex: 1;
+    }
+    .comment-name { font-size: 0.75rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .comment-name span { color: #666; font-weight: 400; font-size: 0.6rem; margin-left: 6px; }
+    .comment-text { font-size: 0.75rem; color: #ccc; line-height: 1.4; }
+
+    .comment-input-bar {
+      position: absolute;
+      bottom: 70px;
+      left: 16px;
+      right: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #0d0d0d;
+      border: 1px solid #2a2a2a;
+      padding: 8px 12px;
+      border-radius: 50px;
+    }
+    .comment-field {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.8rem;
+      outline: none;
+    }
+    .comment-field::placeholder { color: #555; }
+    .send-btn {
+      width: 30px;
+      height: 30px;
+      background: #ffa500;
+      color: #000;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone" style="position:relative;">
+    <span class="screen-label">1 Community Feed</span>
+    <div style="flex:1; overflow-y:auto; scrollbar-width:none;">
+      <div class="header">
+        <span><i class="fas fa-users" style="margin-right:8px;"></i>Community</span>
+        <i class="fas fa-bell"></i>
+      </div>
+
+      <div class="pills">
+        <div class="pill active">All Posts</div>
+        <div class="pill">Following</div>
+        <div class="pill">Workouts</div>
+        <div class="pill">Diet</div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="avatar"><i class="fas fa-user-ninja"></i></div>
+          <div class="post-meta">
+            <div class="post-author">Alex Fit</div>
+            <div class="post-time">2 hours ago</div>
+          </div>
+          <i class="fas fa-ellipsis-v" style="color:#555; font-size:0.9rem;"></i>
+        </div>
+        <div class="post-text">
+          Just smashed my PR on deadlifts! 120kg feeling incredibly light today. Massive thanks to <span class="tag">@CoachRafi</span> for fixing my form.
+        </div>
+        <div class="post-actions">
+          <div class="action-btn active"><i class="fas fa-heart"></i> 42</div>
+          <div class="action-btn"><i class="far fa-comment"></i> 8</div>
+          <div class="action-btn active"><i class="fas fa-star"></i></div>
+          <div class="action-btn"><i class="fas fa-share-nodes"></i></div>
+        </div>
+      </div>
+
+      <div class="post-card">
+        <div class="post-header">
+          <div class="avatar"><i class="fas fa-user-astronaut"></i></div>
+          <div class="post-meta">
+            <div class="post-author">Sarah J.</div>
+            <div class="post-time">5 hours ago</div>
+          </div>
+          <i class="fas fa-ellipsis-v" style="color:#555; font-size:0.9rem;"></i>
+        </div>
+        <div class="post-text">
+          Morning yoga session complete. Finding my center before the busy week starts! <span class="tag">#Mindfulness</span>
+        </div>
+        <div class="post-media">
+          <i class="fas fa-image"></i>
+        </div>
+        <div class="post-actions">
+          <div class="action-btn"><i class="far fa-heart"></i> 115</div>
+          <div class="action-btn"><i class="far fa-comment"></i> 12</div>
+          <div class="action-btn"><i class="far fa-star"></i></div>
+          <div class="action-btn"><i class="fas fa-share-nodes"></i></div>
+        </div>
+      </div>
+      
+      <div style="height: 20px;"></div>
+    </div>
+
+    <div class="fab-container">
+      <div class="fab"><i class="fas fa-pen"></i></div>
+    </div>
+
+    <div class="nav">
+      <div class="actives"><i class="fas fa-walking"></i>Post</div>
+      <div><i class="fas fa-box-open"></i>Packages</div>
+      <div><i class="fas fa-chart-pie"></i>Home</div>
+      <div><i class="fas fa-shoe-prints"></i>Tracker</div>
+      <div><i class="fas fa-user"></i>Profile</div>
+    </div>
+  </div>
+
+
+  <div class="phone" style="position:relative;">
+    <span class="screen-label">2 Create Post</span>
+    <div style="flex:1;">
+      <div class="back-row">
+        <div class="left"><i class="fas fa-chevron-left"></i> New Post</div>
+        <div class="right-action">Publish</div>
+      </div>
+
+      <div class="post-header" style="margin-bottom: 14px;">
+        <div class="avatar user"><i class="fas fa-user"></i></div>
+        <div class="post-meta">
+          <div class="post-author">You</div>
+          <div class="post-time">Posting to All Members</div>
+        </div>
+      </div>
+
+      <div class="create-area">
+        <textarea class="create-input" placeholder="Share your fitness journey, ask for advice, or post a workout..."></textarea>
+      </div>
+
+      <div class="sec-title"><i class="fas fa-paperclip" style="color:#ffa500;margin-right:5px;"></i>Add to your post</div>
+      
+      <div class="add-tools">
+        <div class="tool-row">
+          <i class="fas fa-camera"></i>
+          <span>Photo / Video</span>
+        </div>
+        <div class="tool-row">
+          <i class="fas fa-dumbbell"></i>
+          <span>Tag a Workout</span>
+        </div>
+        <div class="tool-row">
+          <i class="fas fa-location-dot"></i>
+          <span>Check in to Gym Zone</span>
+        </div>
+      </div>
+      
+    </div>
+    <div class="nav">
+      <div class="actives"><i class="fas fa-walking"></i>Post</div>
+      <div><i class="fas fa-box-open"></i>Packages</div>
+      <div><i class="fas fa-chart-pie"></i>Home</div>
+      <div><i class="fas fa-shoe-prints"></i>Tracker</div>
+      <div><i class="fas fa-user"></i>Profile</div>
+    </div>
+  </div>
+
+
+  <div class="phone" style="position:relative;">
+    <span class="screen-label">3 Post Details</span>
+    <div style="flex:1; overflow-y:auto; scrollbar-width:none;">
+      <div class="back-row">
+        <div class="left"><i class="fas fa-chevron-left"></i> Comments</div>
+      </div>
+
+      <div class="post-card" style="border-color: #ffa500; background: #0f0f0f;">
+        <div class="post-header">
+          <div class="avatar"><i class="fas fa-user-ninja"></i></div>
+          <div class="post-meta">
+            <div class="post-author">Alex Fit</div>
+            <div class="post-time">2 hours ago</div>
+          </div>
+        </div>
+        <div class="post-text" style="margin-bottom: 8px;">
+          Just smashed my PR on deadlifts! 120kg feeling incredibly light today. Massive thanks to <span class="tag">@CoachRafi</span> for fixing my form.
+        </div>
+        <div class="post-actions" style="border-top: none; padding-top: 0;">
+          <div class="action-btn active"><i class="fas fa-heart"></i> 42 Likes</div>
+        </div>
+      </div>
+
+      <div class="sec-title" style="margin-top: 20px;">Replies (2)</div>
+
+      <div class="comment-list">
+        <div class="comment-item">
+          <div class="comment-avatar"><i class="fas fa-user-tie"></i></div>
+          <div class="comment-box">
+            <div class="comment-name">Coach Rafi <span>1h ago</span></div>
+            <div class="comment-text">Form was perfect today! Keep that core engaged and we will hit 130kg next month.</div>
+          </div>
+        </div>
+
+        <div class="comment-item">
+          <div class="comment-avatar"><i class="fas fa-user-graduate"></i></div>
+          <div class="comment-box">
+            <div class="comment-name">Jake L. <span>30m ago</span></div>
+            <div class="comment-text">Bro that is insane, good job! I need to join your sessions.</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+    <div class="comment-input-bar">
+      <input type="text" class="comment-field" placeholder="Write a comment...">
+      <div class="send-btn"><i class="fas fa-paper-plane" style="font-size: 0.8rem; margin-right: 2px;"></i></div>
+    </div>
+
+    <div class="nav">
+      <div class="actives"><i class="fas fa-walking"></i>Post</div>
+      <div><i class="fas fa-box-open"></i>Packages</div>
+      <div><i class="fas fa-chart-pie"></i>Home</div>
+      <div><i class="fas fa-shoe-prints"></i>Tracker</div>
+      <div><i class="fas fa-user"></i>Profile</div>
+    </div>
+  </div>
+
+</body>
+</html>
