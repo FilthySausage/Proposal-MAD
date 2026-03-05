@@ -1,33 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 88" width="300" height="88" role="img" aria-label="X-FatHub Horizontal Wordmark — Light">
-  <title>X-FatHub Horizontal Wordmark Light</title>
-  <defs>
-    <style>
-      .wm-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 30px; letter-spacing: -0.5px; }
-      .wm-tag  { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; }
-    </style>
-    <linearGradient id="bg-wml" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#ffa500"/>
-      <stop offset="100%" stop-color="#ff6b00"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 330 118" width="330" height="118" role="img" aria-label="X-FatHub Wordmark Light">
+  <title>X-FatHub Wordmark - Light</title>
 
-  <!-- White card -->
-  <rect x="0" y="0" width="300" height="88" rx="22" ry="22" fill="#ffffff"/>
+  <!-- Container -->
+  <rect width="300" height="88" rx="24" fill="transparent"/>
 
-  <!-- Orange icon badge -->
-  <rect x="16" y="16" width="56" height="56" rx="16" ry="16" fill="url(#bg-wml)"/>
-  <g transform="translate(16,16) scale(0.778)">
-    <line x1="14" y1="14" x2="58" y2="58" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
-    <line x1="58" y1="14" x2="14" y2="58" stroke="#000000" stroke-width="8" stroke-linecap="round"/>
-    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
-      stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <circle cx="36" cy="36" r="5.5" fill="#000000"/>
+  <!-- Icon Mark (Splash Design) -->
+  <g transform="translate(10, 10)">
+    <!-- Outer soft shadow -->
+    <rect x="-1" y="-1" width="70" height="70" rx="20" fill="none" stroke="#ffa500" stroke-width="6" opacity="0.18"/>
+    <!-- Shell -->
+    <rect x="2" y="2" width="64" height="64" rx="18" fill="#ffffff"/>
+    <rect x="2" y="2" width="64" height="64" rx="18" fill="none" stroke="#ffa500" stroke-width="1.5"/>
+    
+    <!-- Core SVG -->
+    <g transform="translate(10, 10) scale(0.666)">
+      <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+        stroke="#111111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+    </g>
   </g>
 
-  <!-- App name — orange X, black rest -->
-  <text x="88" y="52" class="wm-name">
-    <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
-  </text>
-  <!-- Tagline — grey -->
-  <text x="90" y="68" class="wm-tag" fill="#aaaaaa">Track · Burn · Thrive</text>
+  <!-- Wordmark Text -->
+  <g transform="translate(94, 46)">
+    <text font-family="'Inter', sans-serif" font-weight="900" font-size="34" letter-spacing="-1">
+      <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
+    </text>
+  </g>
+
+  <!-- Tagline Text -->
+  <g transform="translate(96, 68)">
+    <text font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#666666" letter-spacing="2.5" text-transform="uppercase">TRACK · BURN · THRIVE</text>
+  </g>
 </svg>

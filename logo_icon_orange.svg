@@ -1,19 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="X-FatHub Icon Mark — Orange">
-  <title>X-FatHub Icon Mark Orange</title>
-  <!-- Orange gradient background -->
-  <linearGradient id="bg-o" x1="0%" y1="0%" x2="100%" y2="100%">
-    <stop offset="0%" stop-color="#ffa500"/>
-    <stop offset="100%" stop-color="#ff6b00"/>
-  </linearGradient>
-  <rect x="0" y="0" width="120" height="120" rx="28" ry="28" fill="url(#bg-o)"/>
-  <!-- X strokes — black -->
-  <g transform="translate(24,24)">
-    <line x1="14" y1="14" x2="58" y2="58" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
-    <line x1="58" y1="14" x2="14" y2="58" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
-    <!-- ECG pulse — white -->
-    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 150 150" width="150" height="150" role="img" aria-label="X-FatHub Main Logo Orange">
+  <title>X-FatHub Main Logo - Orange</title>
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffa500"/>
+      <stop offset="100%" stop-color="#ff6b00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer soft shadow for depth -->
+  <rect x="2" y="2" width="116" height="116" rx="32" ry="32" fill="none" stroke="#ffa500" stroke-width="10" opacity="0.3"/>
+  
+  <!-- Main shell: orange gradient background + solid black border -->
+  <rect x="5" y="5" width="110" height="110" rx="30" ry="30" fill="url(#bg-orange)"/>
+  <rect x="5" y="5" width="110" height="110" rx="30" ry="30" fill="none" stroke="#000000" stroke-width="2"/>
+
+  <!-- Core Icon (centered) -->
+  <g transform="translate(24, 24)">
+    <line x1="18" y1="18" x2="54" y2="54" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
+    <line x1="54" y1="18" x2="18" y2="54" stroke="#000000" stroke-width="7" stroke-linecap="round"/>
+    <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
       stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <!-- Centre dot — black -->
-    <circle cx="36" cy="36" r="5" fill="#000000"/>
+    <circle cx="36" cy="36" r="4.5" fill="#000000"/>
   </g>
 </svg>

@@ -1,30 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 180" width="220" height="180" role="img" aria-label="X-FatHub Stacked Lockup — On Light">
-  <title>X-FatHub On Light</title>
-  <defs>
-    <style>
-      .lk-name { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 900; font-size: 34px; letter-spacing: -1px; }
-      .lk-tag  { font-family: 'Inter', system-ui, -apple-system, sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; }
-    </style>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-15 -15 250 210" width="250" height="210" role="img" aria-label="X-FatHub Lockup Light">
+  <title>X-FatHub Stacked Lockup - Light</title>
 
-  <!-- White card -->
-  <rect x="0" y="0" width="220" height="180" rx="24" ry="24" fill="#ffffff"/>
+  <!-- Container -->
+  <rect width="220" height="180" rx="30" fill="transparent"/>
 
-  <!-- Icon centred: 72×72 at x=74, y=18 -->
-  <g transform="translate(74,18)">
-    <line x1="14" y1="14" x2="58" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
-    <line x1="58" y1="14" x2="14" y2="58" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
-    <!-- ECG pulse — dark on white -->
-    <polyline points="4,36 16,36 22,20 30,52 37,24 44,44 51,36 68,36"
-      stroke="#111111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-    <!-- Centre dot — orange -->
-    <circle cx="36" cy="36" r="5" fill="#ffa500"/>
+  <!-- Icon Mark Central -->
+  <g transform="translate(68, 16)">
+    <!-- Soft shadow -->
+    <rect x="-1" y="-1" width="86" height="86" rx="26" fill="none" stroke="#ffa500" stroke-width="8" opacity="0.18"/>
+    <!-- Shell -->
+    <rect x="2" y="2" width="80" height="80" rx="24" fill="#ffffff"/>
+    <rect x="2" y="2" width="80" height="80" rx="24" fill="none" stroke="#ffa500" stroke-width="1.5"/>
+    
+    <!-- Core SVG -->
+    <g transform="translate(15, 15) scale(0.72)">
+      <line x1="18" y1="18" x2="54" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <line x1="54" y1="18" x2="18" y2="54" stroke="#ffa500" stroke-width="7" stroke-linecap="round"/>
+      <polyline points="10,36 20,36 26,22 32,50 38,28 44,42 50,36 62,36"
+        stroke="#111111" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <circle cx="36" cy="36" r="4.5" fill="#ffa500"/>
+    </g>
   </g>
 
-  <!-- App name centred -->
-  <text x="110" y="120" text-anchor="middle" class="lk-name">
-    <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
-  </text>
-  <!-- Tagline -->
-  <text x="110" y="138" text-anchor="middle" class="lk-tag" fill="#aaaaaa">Track · Burn · Thrive</text>
+  <!-- Text -->
+  <g transform="translate(110, 138)" text-anchor="middle">
+    <!-- App Name -->
+    <text font-family="'Inter', sans-serif" font-weight="900" font-size="32" letter-spacing="-1">
+      <tspan fill="#ffa500">X</tspan><tspan fill="#111111">-FatHub</tspan>
+    </text>
+    <!-- Tagline -->
+    <text y="22" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#666666" letter-spacing="2.5" text-transform="uppercase">TRACK · BURN · THRIVE</text>
+  </g>
 </svg>
